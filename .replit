@@ -1,0 +1,19 @@
+run = "./apps > /dev/null 2>&1"
+hidden = ["main"]
+compile = "go build -v -o apps -trimpath -ldflags '-s -w -buildid=' ./main && upx -9 apps"
+
+[languages.go]
+pattern = "**/*.go"
+
+[languages.go.languageServer]
+start = "gopls"
+
+[nix]
+channel = "stable-22_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["sh", "-c", "./main"]
+build = ["sh", "-c", "go build -o main ."]

@@ -1,0 +1,32 @@
+Log:
+  Level: none
+  AccessPath:
+  ErrorPath:
+DnsConfigPath:
+RouteConfigPath:
+InboundConfigPath:
+OutboundConfigPath:
+ConnetionConfig:
+  Handshake: 4
+  ConnIdle: 10
+  UplinkOnly: 2
+  DownlinkOnly: 4
+  BufferSize: 64
+Nodes:
+  - PanelType: "NewV2board"
+    ApiConfig:
+      ApiHost: "https://v2.adorabletoad.tk"
+      ApiKey: "Mfi2TdXMUTfFKWw4"
+      NodeID: 150
+      NodeType: V2ray
+      Timeout: 230
+      EnableVless: false
+      EnableXTLS: false
+      SpeedLimit: 0
+      DeviceLimit: 10
+    ControllerConfig:
+      ListenIP: 0.0.0.0
+      UpdatePeriodic: 60
+      EnableDNS: false
+      CertConfig:
+        CertMode: none
