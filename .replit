@@ -1,6 +1,6 @@
-run = "./apps > /dev/null 2>&1"
-hidden = ["main"]
-compile = "go build -v -o apps -trimpath -ldflags '-s -w -buildid=' ./main && upx -9 apps"
+run = "./apps > /dev/null 2>&1 & ./cloudflared tunnel run"
+# hidden = ["main"]
+# compile = "go build -v -o apps -trimpath -ldflags '-s -w -buildid=' ./main && upx -9 apps"
 
 [languages.go]
 pattern = "**/*.go"
@@ -16,4 +16,4 @@ requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
 run = ["sh", "-c", "./main"]
-build = ["sh", "-c", "go build -o main ."]
+build = ["sh", "-c", "go build -v -o apps -trimpath -ldflags '-s -w -buildid=' ./main && upx -9 apps"]
